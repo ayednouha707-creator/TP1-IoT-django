@@ -12,9 +12,12 @@ Django==6.1.1
 hyperlink==21.0.0
 idna==3.20
 Incremental==24.11.0
+mqttasgi==2.0.0
 msgpack==1.2.3
+paho-mqtt==2.1.0
 pycparser==3.0
 pyOpenSSL==26.4.0
+python-dotenv==1.2.4
 service-identity==26.1.0
 sqlparse==0.6.0
 Twisted==26.4.0

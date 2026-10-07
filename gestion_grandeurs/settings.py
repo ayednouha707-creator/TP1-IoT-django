@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # business applications
     "website.apps.WebsiteConfig",
     "grandeurs.apps.GrandeursConfig",
+    "mqtt_topics.apps.MqttTopicsConfig",
 ]
 
 MIDDLEWARE = [

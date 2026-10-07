@@ -1,6 +1,6 @@
 """
 ASGI config for gestion_grandeurs project.
-Interface avec le web asynchrone (Django Channels + Daphne).
+Protocoles gérés : http (Daphne) et mqtt (mqttasgi).
 """
 import os
 
@@ -12,7 +12,9 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gestion_grandeurs.settings')
 
 django.setup()
 
-# application = get_asgi_application()
+from mqtt_topics.consumers import MyMqttConsumer  # noqa: E402 (après django.setup())
+
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
+    'mqtt': MyMqttConsumer.as_asgi(),
 })
