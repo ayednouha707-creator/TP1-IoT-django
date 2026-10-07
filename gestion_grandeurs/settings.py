@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # business applications
+    "website.apps.WebsiteConfig",
+    "grandeurs.apps.GrandeursConfig",
 ]
 
 MIDDLEWARE = [
