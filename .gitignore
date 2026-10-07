@@ -1,0 +1,20 @@
+# environnement virtuel
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# base de données locale
+db.sqlite3
+
+# secrets (Firebase, .env)
+.env
+serviceAccountKey*.json
+
+# éditeurs / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
