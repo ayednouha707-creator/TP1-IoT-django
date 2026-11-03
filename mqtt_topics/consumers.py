@@ -21,6 +21,7 @@ class GrandeurMqttConsumer(MqttConsumer):
         print('MQTT connected....')
 
     async def receive(self, mqtt_message):
+        print(">>> message MQTT reçu")
         topic = mqtt_message['topic']
         payload = mqtt_message['payload'].decode('utf-8', errors='replace')
 
@@ -44,6 +45,13 @@ class GrandeurMqttConsumer(MqttConsumer):
             print(f"[DB] saved ✔ {mesure}")
         except Exception as e:
             print(f"[DB] ERROR: {e!r}")
+
+        # envoi vers Firebase Realtime Database (import au 1er message)
+        try:
+            from persistence.persistance_engine import persist_mesure_firebase
+            await persist_mesure_firebase(data)
+        except Exception as e:
+            print(f"[Firebase] ERROR: {e!r}")
 
     @database_sync_to_async
     def save_mesure(self, topic, data):

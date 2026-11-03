@@ -31,7 +31,7 @@ def generate_mesure():
 
 def main():
     """Main function to publish sensor data to MQTT broker."""
-    client = mqtt.Client()
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 
     print(f"connecting to MQTT broker at {MQTT_BROKER}:{MQTT_PORT}...")
     client.connect(MQTT_BROKER, MQTT_PORT, 60)

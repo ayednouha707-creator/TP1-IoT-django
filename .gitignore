@@ -22,3 +22,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Firebase service account key (SECRET - never commit)
+firebase-key.json
+*firebase-adminsdk*.json
