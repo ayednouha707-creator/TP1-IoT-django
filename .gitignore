@@ -1,20 +1,24 @@
-# environnement virtuel
+# Virtual environment
 .venv/
 venv/
+env/
 
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
 
-# base de données locale
+# Database (local data)
 db.sqlite3
+db.sqlite3-journal
 
-# secrets (Firebase, .env)
+# Secrets
 .env
-serviceAccountKey*.json
 
-# éditeurs / OS
+# IDE / OS
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log

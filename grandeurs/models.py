@@ -1,0 +1,26 @@
+from django.db import models
+from django.utils import timezone
+
+
+class Grandeur(models.Model):
+    nom = models.CharField(max_length=60)
+    unite = models.CharField(max_length=30)
+    valeurMin = models.FloatField()
+    valeurMax = models.FloatField()
+
+    def __str__(self):
+        return (f"Grandeur: {self.nom} Unité: {self.unite} "
+                f"valeurs entre {self.valeurMin} et {self.valeurMax}")
+
+
+class Mesure(models.Model):
+    valeur = models.FloatField()
+    datePrise = models.DateTimeField(default=timezone.now)
+    grandeur = models.ForeignKey(
+        'Grandeur',
+        on_delete=models.CASCADE,
+        related_name='mesures',
+    )
+
+    def __str__(self):
+        return f"Mesure: {self.valeur} at {self.datePrise}"
